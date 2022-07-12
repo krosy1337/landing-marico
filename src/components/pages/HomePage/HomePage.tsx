@@ -10,6 +10,7 @@ import OneClickCollects from "./OneClickCollects"
 import Step3 from "./Step3"
 import CreateShare from "./CreateShare"
 import ExpertsAgree from "./ExpertsAgree"
+import Audience from "./Audience"
 
 const HomePage: FC = () => {
     return (
@@ -24,6 +25,7 @@ const HomePage: FC = () => {
             <Step3/>
             <CreateShare/>
             <ExpertsAgree/>
+            <Audience/>
         </Box>
     )
 }
