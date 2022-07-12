@@ -6,6 +6,7 @@ import WhyLoveMarico from "./WhyLoveMarico"
 import Step1 from "./Step1"
 import YourHomePage from "./YourHomePage"
 import Step2 from "./Step2"
+import OneClickCollects from "./OneClickCollects"
 
 const HomePage: FC = () => {
     return (
@@ -16,6 +17,7 @@ const HomePage: FC = () => {
             <Step1/>
             <YourHomePage/>
             <Step2/>
+            <OneClickCollects/>
         </Box>
     )
 }
