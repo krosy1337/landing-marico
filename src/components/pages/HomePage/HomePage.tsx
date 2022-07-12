@@ -11,6 +11,7 @@ import Step3 from "./Step3"
 import CreateShare from "./CreateShare"
 import ExpertsAgree from "./ExpertsAgree"
 import Audience from "./Audience"
+import GetStart from "./GetStart"
 
 const HomePage: FC = () => {
     return (
@@ -26,6 +27,7 @@ const HomePage: FC = () => {
             <CreateShare/>
             <ExpertsAgree/>
             <Audience/>
+            <GetStart/>
         </Box>
     )
 }
