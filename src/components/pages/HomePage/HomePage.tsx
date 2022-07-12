@@ -4,6 +4,7 @@ import {Box} from "@mui/material"
 import TurnYourAud from "./TurnYourAud"
 import WhyLoveMarico from "./WhyLoveMarico"
 import Step1 from "./Step1"
+import YourHomePage from "./YourHomePage"
 
 const HomePage: FC = () => {
     return (
@@ -12,6 +13,7 @@ const HomePage: FC = () => {
             <TurnYourAud/>
             <WhyLoveMarico/>
             <Step1/>
+            <YourHomePage/>
         </Box>
     )
 }
