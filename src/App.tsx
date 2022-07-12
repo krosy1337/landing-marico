@@ -1,8 +1,13 @@
-import React from "react"
+import React, {FC} from "react"
+import {useRoutes} from "react-router-dom"
+import {mainRoutes} from "./routes"
 
-function App() {
+const App: FC = () => {
+    const routes = useRoutes(mainRoutes)
     return (
-        <div className="App"/>
+        <>
+            {routes}
+        </>
     )
 }
 
