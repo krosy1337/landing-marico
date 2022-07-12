@@ -8,6 +8,7 @@ import YourHomePage from "./YourHomePage"
 import Step2 from "./Step2"
 import OneClickCollects from "./OneClickCollects"
 import Step3 from "./Step3"
+import CreateShare from "./CreateShare"
 
 const HomePage: FC = () => {
     return (
@@ -20,6 +21,7 @@ const HomePage: FC = () => {
             <Step2/>
             <OneClickCollects/>
             <Step3/>
+            <CreateShare/>
         </Box>
     )
 }
