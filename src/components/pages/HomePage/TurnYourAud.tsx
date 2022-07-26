@@ -12,7 +12,11 @@ const TurnYourAud: FC = () => {
                 md: 10,
                 lg: 15,
             },
-            marginBottom: 18,
+            marginBottom: {
+                xs: 5,
+                md: 10,
+                lg: 18,
+            },
             display: "flex",
             flexDirection: "column",
             alignItems: "center"
