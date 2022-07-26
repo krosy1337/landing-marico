@@ -97,18 +97,15 @@ const Header: FC = () => {
                           open={!!anchorElNav}
                           onClose={handleCloseNavMenu}
                     >
-                        <MenuItem>
-                            <UiNavLink to={RouteNames.ABOUT}>About</UiNavLink>
-                        </MenuItem>
-                        <MenuItem>
-                            <UiNavLink to={RouteNames.PRICING}>Pricing</UiNavLink>
-                        </MenuItem>
-                        <MenuItem>
-                            <UiNavLink to={RouteNames.BLOG}>Blog</UiNavLink>
-                        </MenuItem>
-                        <MenuItem>
-                            <UiNavLink to={RouteNames.BLOG}>Blog</UiNavLink>
-                        </MenuItem>
+                        <UiNavLink to={RouteNames.ABOUT}>
+                            <MenuItem>About</MenuItem>
+                        </UiNavLink>
+                        <UiNavLink to={RouteNames.PRICING}>
+                            <MenuItem>Pricing</MenuItem>
+                        </UiNavLink>
+                        <UiNavLink to={RouteNames.BLOG}>
+                            <MenuItem>Blog</MenuItem>
+                        </UiNavLink>
                     </Menu>
                     <Stack direction="row" columnGap={1} alignItems="center">
                         <Button variant="text"
