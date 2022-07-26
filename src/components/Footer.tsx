@@ -10,7 +10,10 @@ const Footer: FC = () => {
         <AppBar sx={{height: 56, backgroundColor: "transparent", fontFamily: "Poppins", marginBottom: 5,}}
                 position="static">
             <Container maxWidth="lg"
-                       sx={{height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                       sx={{
+                           height: "100%", display: "flex", alignItems: "center",
+                           justifyContent: "space-between",
+                       }}>
                 <Stack rowGap={1}>
                     <Link to={RouteNames.ROOT} style={{textDecoration: "none", color: "inherit"}}>
                         <Stack direction="row" columnGap={1} alignItems="center">
@@ -22,7 +25,7 @@ const Footer: FC = () => {
                     <Typography variant="body1" fontFamily="inherit"
                                 sx={{color: "grey.600"}}>info@marico.com</Typography>
                 </Stack>
-                <Stack direction="row" columnGap={1} alignItems="center">
+                <Stack direction={{xs: "column", sm: "row"}} columnGap={1} alignItems="center">
                     <UiNavLink to={RouteNames.ABOUT}>About</UiNavLink>
                     <UiNavLink to={RouteNames.PRICING}>Pricing</UiNavLink>
                     <UiNavLink to={RouteNames.BLOG}>Blog</UiNavLink>
