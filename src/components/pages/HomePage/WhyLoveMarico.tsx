@@ -8,8 +8,7 @@ const WhyLoveMarico: FC = () => {
     return (
         <Container maxWidth="lg" sx={{
             marginBottom: {
-                xs: 2,
-                sm: 4,
+                xs: 4,
                 md: 6,
                 lg: 10,
             },
