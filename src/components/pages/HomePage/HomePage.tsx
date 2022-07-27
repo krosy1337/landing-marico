@@ -8,14 +8,14 @@ import YourHomePage from "./YourHomePage"
 import Step2 from "./Step2"
 import OneClickCollects from "./OneClickCollects"
 import Step3 from "./Step3"
-import CreateShare from "./CreateShare"
-import ExpertsAgree from "./ExpertsAgree"
-import Audience from "./Audience"
-import GetStart from "./GetStart"
+import CreateShare from "components/pages/HomePage/CreateShare"
+import ExpertsAgree from "components/pages/HomePage/ExpertsAgree"
+import Audience from "components/pages/HomePage/Audience"
+import GetStart from "components/pages/HomePage/GetStart"
 
 const HomePage: FC = () => {
     return (
-        <Box sx={{fontFamily: "Poppins", paddingTop: 15,}}>
+        <Box sx={{fontFamily: "Poppins", paddingTop: {xs: 4, sm: 5, md: 10, lg: 15,},}}>
             <MainHeading/>
             <TurnYourAud/>
             <WhyLoveMarico/>
