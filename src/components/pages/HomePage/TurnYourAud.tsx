@@ -1,8 +1,68 @@
 import React, {FC} from "react"
-import {Box, Button, Container, Stack, Typography} from "@mui/material"
+import {Container, Stack} from "@mui/material"
 import dot from "assets/green_dot.svg"
-import GreyButton from "components/UI/GreyButton"
 import styles from "styles/home.module.scss"
+import MTypography from "components/Motion/MTypography"
+import MButton from "components/Motion/MButton"
+import MGreyButton from "components/Motion/MGreyButton"
+import MBox from "components/Motion/MBox"
+
+const typographyVariants = {
+    hidden: {
+        scale: 0,
+        opacity: 0,
+    },
+    visible: (custom: number) => ({
+        scale: 1,
+        opacity: 1,
+        transition: {
+            delay: 0.2 + custom,
+            type: "spring",
+            stiffness: 100,
+        },
+    }),
+}
+
+const greenDotVariants = {
+    hidden: {y: -10, opacity: 0,},
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            delay: 0.6,
+            type: "spring",
+            stiffness: 100,
+        }
+    },
+}
+
+const buttonVariants = {
+    hidden: {
+        scale: 0,
+        opacity: 0,
+    },
+    visible: (custom: number) => ({
+        scale: 1,
+        opacity: 1,
+        transition: {
+            delay: 0.2 + custom,
+            type: "spring",
+            stiffness: 100,
+        },
+    }),
+}
+const whiteTextVariants = {
+    hidden: {y: 10, opacity: 0,},
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            delay: 0.6,
+            type: "spring",
+            stiffness: 100,
+        },
+    },
+}
 
 const TurnYourAud: FC = () => {
     return (
@@ -21,7 +81,7 @@ const TurnYourAud: FC = () => {
             flexDirection: "column",
             alignItems: "center"
         }}>
-            <Typography variant="h4" align="center" fontFamily="inherit" fontWeight={500} sx={{
+            <MTypography variant="h4" align="center" fontFamily="inherit" fontWeight={500} sx={{
                 marginBottom: {
                     xs: 2,
                     lg: 4,
@@ -32,10 +92,11 @@ const TurnYourAud: FC = () => {
                     md: "1.5rem",
                     lg: "2.5rem",
                 }
-            }}>Turn
+            }}
+                         initial="hidden" whileInView="visible" variants={typographyVariants}>Turn
                 your audience into email
                 and
-                text message subscribers.</Typography>
+                text message subscribers.</MTypography>
             <Stack alignItems="center" justifyContent="center" rowGap={1} columnGap={2} sx={{
                 marginBottom: {
                     xs: 1,
@@ -47,28 +108,29 @@ const TurnYourAud: FC = () => {
                 },
                 width: "100%",
             }}>
-                <Button variant="contained"
-                        sx={{
-                            fontFamily: "inherit", fontWeight: 400,
-                            width: {
-                                xs: "100%",
-                                sm: 150,
-                                md: 180,
-                                lg: 200,
-                            },
-                            height: {
-                                xs: 30,
-                                md: 40,
-                                lg: 50,
-                            },
-                            fontSize: {
-                                xs: 10,
-                                md: 11,
-                                lg: 12,
-                            },
-                        }}>Get Started
-                    Now</Button>
-                <GreyButton variant="outlined" sx={{
+                <MButton variant="contained"
+                         sx={{
+                             fontFamily: "inherit", fontWeight: 400,
+                             width: {
+                                 xs: "100%",
+                                 sm: 150,
+                                 md: 180,
+                                 lg: 200,
+                             },
+                             height: {
+                                 xs: 30,
+                                 md: 40,
+                                 lg: 50,
+                             },
+                             fontSize: {
+                                 xs: 10,
+                                 md: 11,
+                                 lg: 12,
+                             },
+                         }}
+                         initial="hidden" whileInView="visible" variants={buttonVariants} custom={0.2}>Get Started
+                    Now</MButton>
+                <MGreyButton variant="outlined" sx={{
                     fontFamily: "inherit", fontWeight: 400,
                     width: {
                         xs: "100%",
@@ -86,7 +148,9 @@ const TurnYourAud: FC = () => {
                         md: 11,
                         lg: 12,
                     },
-                }}>View A Demo</GreyButton>
+                }}
+                             initial="hidden" whileInView="visible" variants={buttonVariants} custom={0.3}>View A
+                    Demo</MGreyButton>
             </Stack>
             <Stack direction="row" columnGap="2px" sx={{
                 fontSize: {
@@ -95,7 +159,7 @@ const TurnYourAud: FC = () => {
                     lg: 16,
                 },
             }}>
-                <Box sx={{
+                <MBox sx={{
                     width: {
                         xs: 10,
                         md: 15,
@@ -104,18 +168,20 @@ const TurnYourAud: FC = () => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "start",
-                }}>
+                }} initial="hidden" whileInView="visible" variants={greenDotVariants}>
                     <img className={styles.greenDot} src={dot} alt="dot" style={{
                         alignSelf: "start",
                         width: "100%",
                     }}/>
-                </Box>
+                </MBox>
                 <Stack direction="row" columnGap={1} alignItems="center">
-                    <Typography variant="body1" fontFamily="inherit" fontWeight={700} sx={{fontSize: "inherit",}}>
-                        1000+</Typography>
-                    <Typography variant="body1" fontFamily="inherit" sx={{color: "grey.600", fontSize: "inherit",}}>
+                    <MTypography variant="body1" fontFamily="inherit" fontWeight={700} sx={{fontSize: "inherit",}}
+                                 initial="hidden" whileInView="visible" variants={whiteTextVariants}>
+                        1000+</MTypography>
+                    <MTypography variant="body1" fontFamily="inherit" sx={{color: "grey.600", fontSize: "inherit",}}
+                                 initial="hidden" whileInView="visible" custom={0.4} variants={typographyVariants}>
                         creators have already
-                        started</Typography>
+                        started</MTypography>
                 </Stack>
             </Stack>
         </Container>

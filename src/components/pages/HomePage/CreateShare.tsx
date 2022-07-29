@@ -1,7 +1,55 @@
 import React, {FC} from "react"
-import {Box, Button, Container, List, ListItem, Stack, Typography} from "@mui/material"
+import {Box, Container, List, ListItem, Stack, Typography} from "@mui/material"
 import image from "assets/desktop_create_share.jpg"
-import GreyButton from "components/UI/GreyButton"
+import MBox from "components/Motion/MBox"
+import MTypography from "components/Motion/MTypography"
+import MButton from "components/Motion/MButton"
+import MGreyButton from "components/Motion/MGreyButton"
+
+const imageVariants = {
+    hidden: {
+        opacity: 0,
+        x: 200,
+    },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            type: "spring",
+        },
+    },
+}
+
+const typographyVariants = {
+    hidden: {
+        opacity: 0,
+        x: -200,
+    },
+    visible: (custom: number) => ({
+        opacity: 1,
+        x: 0,
+        transition: {
+            delay: 0.2 * custom,
+            type: "spring",
+        },
+    }),
+}
+
+const buttonVariants = {
+    hidden: {
+        scale: 0,
+        opacity: 0,
+    },
+    visible: (custom: number) => ({
+        scale: 1,
+        opacity: 1,
+        transition: {
+            delay: 0.2 * custom,
+            type: "spring",
+            stiffness: 100,
+        },
+    }),
+}
 
 const CreateShare: FC = () => {
     return (
@@ -18,7 +66,7 @@ const CreateShare: FC = () => {
                 md: "row",
             },
         }}>
-            <Box sx={{
+            <MBox sx={{
                 width: {
                     xs: "100%",
                     md: "50%",
@@ -28,8 +76,8 @@ const CreateShare: FC = () => {
                     xs: 0,
                     lg: 20,
                 },
-            }}>
-                <Typography variant="h6" fontFamily="inherit" fontWeight={500} sx={{
+            }} initial="hidden" whileInView="visible">
+                <MTypography variant="h6" fontFamily="inherit" fontWeight={500} sx={{
                     marginBottom: {
                         xs: 1,
                         sm: 2,
@@ -42,9 +90,9 @@ const CreateShare: FC = () => {
                         md: "1.20rem",
                         lg: "1.25rem",
                     },
-                }}>
-                    Create & Share</Typography>
-                <Typography variant="h3" fontFamily="inherit" fontWeight={600} sx={{
+                }} variants={typographyVariants} custom={0}>
+                    Create & Share</MTypography>
+                <MTypography variant="h3" fontFamily="inherit" fontWeight={600} sx={{
                     marginBottom: {
                         xs: 0,
                         sm: 0.2,
@@ -56,9 +104,9 @@ const CreateShare: FC = () => {
                         md: "2.5rem",
                         lg: "3rem",
                     },
-                }}>
-                    Reach Your</Typography>
-                <Box sx={{
+                }} variants={typographyVariants} custom={1}>
+                    Reach Your</MTypography>
+                <MBox sx={{
                     marginBottom: {
                         xs: 0.5,
                         sm: 1,
@@ -70,13 +118,13 @@ const CreateShare: FC = () => {
                         md: "2.5rem",
                         lg: "3rem",
                     }
-                }}>
+                }} variants={typographyVariants} custom={1}>
                     <Typography variant="h3" fontFamily="inherit" fontWeight={600} fontSize="inherit" component="span"
                                 sx={{marginRight: 1,}}>Audience</Typography>
                     <Typography variant="h3" fontFamily="inherit" fontWeight={600} color="primary" fontSize="inherit"
                                 component="span">
                         Directly.</Typography>
-                </Box>
+                </MBox>
                 <List sx={{
                     padding: 0, marginBottom: {
                         xs: 1,
@@ -86,7 +134,8 @@ const CreateShare: FC = () => {
                     }, display: "flex", flexDirection: "column", rowGap: 1,
                 }}>
                     <ListItem sx={{padding: 0}}>
-                        <Box sx={{display: "flex", alignItems: "center", columnGap: 1}}>
+                        <MBox sx={{display: "flex", alignItems: "center", columnGap: 1}}
+                              variants={typographyVariants} custom={2}>
                             <Box sx={{
                                 backgroundColor: "grey.800",
                                 borderRadius: 50,
@@ -127,10 +176,11 @@ const CreateShare: FC = () => {
                                 },
                             }}>
                                 Embed content or create something new to share.</Typography>
-                        </Box>
+                        </MBox>
                     </ListItem>
                     <ListItem sx={{padding: 0}}>
-                        <Box sx={{display: "flex", alignItems: "center", columnGap: 1}}>
+                        <MBox sx={{display: "flex", alignItems: "center", columnGap: 1}}
+                              variants={typographyVariants} custom={2.3}>
                             <Box sx={{
                                 backgroundColor: "grey.800",
                                 borderRadius: 50,
@@ -171,7 +221,7 @@ const CreateShare: FC = () => {
                                 },
                             }}>
                                 Share content over email, text message or your homepage.</Typography>
-                        </Box>
+                        </MBox>
                     </ListItem>
                 </List>
                 <Stack alignItems="center" rowGap={1} columnGap={2} sx={{
@@ -185,28 +235,28 @@ const CreateShare: FC = () => {
                     },
                     width: "100%",
                 }}>
-                    <Button variant="contained"
-                            sx={{
-                                fontFamily: "inherit", fontWeight: 400,
-                                width: {
-                                    xs: "100%",
-                                    sm: 150,
-                                    md: 180,
-                                    lg: 200,
-                                },
-                                height: {
-                                    xs: 30,
-                                    md: 40,
-                                    lg: 50,
-                                },
-                                fontSize: {
-                                    xs: 10,
-                                    md: 11,
-                                    lg: 12,
-                                },
-                            }}>Get Started
-                        Now</Button>
-                    <GreyButton variant="outlined" sx={{
+                    <MButton variant="contained"
+                             sx={{
+                                 fontFamily: "inherit", fontWeight: 400,
+                                 width: {
+                                     xs: "100%",
+                                     sm: 150,
+                                     md: 180,
+                                     lg: 200,
+                                 },
+                                 height: {
+                                     xs: 30,
+                                     md: 40,
+                                     lg: 50,
+                                 },
+                                 fontSize: {
+                                     xs: 10,
+                                     md: 11,
+                                     lg: 12,
+                                 },
+                             }} initial="hidden" whileInView="visible" variants={buttonVariants} custom={0}>Get Started
+                        Now</MButton>
+                    <MGreyButton variant="outlined" sx={{
                         fontFamily: "inherit", fontWeight: 400,
                         width: {
                             xs: "100%",
@@ -224,15 +274,16 @@ const CreateShare: FC = () => {
                             md: 11,
                             lg: 12,
                         },
-                    }}>View A Demo</GreyButton>
+                    }} initial="hidden" whileInView="visible" variants={buttonVariants} custom={1}>View A
+                        Demo</MGreyButton>
                 </Stack>
-            </Box>
-            <Box sx={{
+            </MBox>
+            <MBox sx={{
                 position: "relative", display: {
                     xs: "none",
                     md: "flex",
                 },
-            }}>
+            }} initial="hidden" whileInView="visible" variants={imageVariants}>
                 <Box sx={{
                     height: {
                         md: 210,
@@ -251,7 +302,7 @@ const CreateShare: FC = () => {
                         <rect width="309" height="276" fill="#8B8B8B"/>
                     </svg>
                 </Box>
-            </Box>
+            </MBox>
         </Container>
     )
 }

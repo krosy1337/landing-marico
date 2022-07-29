@@ -1,8 +1,94 @@
 import React, {FC} from "react"
-import {Avatar, Box, Button, Container, Stack, Typography} from "@mui/material"
+import {Container, Stack} from "@mui/material"
 import logo from "assets/logo.svg"
 import dot from "assets/green_dot.svg"
 import styles from "styles/home.module.scss"
+import MAvatar from "components/Motion/MAvatar"
+import MTypography from "components/Motion/MTypography"
+import MButton from "components/Motion/MButton"
+import MBox from "components/Motion/MBox"
+
+const logoVariants = {
+    hidden: {
+        scale: 0,
+    },
+    visible: {
+        scale: 1,
+        transition: {
+            type: "spring"
+        },
+    },
+}
+
+const typographyVariants = {
+    hidden: {
+        opacity: 0,
+        y: -50,
+    },
+    visible: (custom: number) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+            delay: 0.2 * custom,
+            type: "spring"
+        },
+    }),
+}
+
+const buttonVariants = {
+    hidden: {
+        scale: 0,
+    },
+    visible: (custom: number) => ({
+        scale: 1,
+        transition: {
+            delay: 0.2 * custom,
+            type: "spring"
+        },
+    }),
+}
+
+const whiteTextVariants = {
+    hidden: {y: 10, opacity: 0,},
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            delay: 0.6,
+            type: "spring",
+            stiffness: 100,
+        },
+    },
+}
+
+const greenDotVariants = {
+    hidden: {y: -10, opacity: 0,},
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            delay: 0.6,
+            type: "spring",
+            stiffness: 100,
+        }
+    },
+}
+
+const greyTextVariants = {
+    hidden: {
+        scale: 0,
+        opacity: 0,
+    },
+    visible: (custom: number) => ({
+        scale: 1,
+        opacity: 1,
+        transition: {
+            delay: 0.2 * custom,
+            type: "spring",
+            stiffness: 100,
+        },
+    }),
+}
 
 const GetStart: FC = () => {
     return (
@@ -15,7 +101,7 @@ const GetStart: FC = () => {
                            lg: 10,
                        },
                    }}>
-            <Avatar src={logo} variant="square" sx={{
+            <MAvatar src={logo} variant="square" sx={{
                 height: "auto", width: {
                     xs: 50,
                     sm: 75,
@@ -27,50 +113,50 @@ const GetStart: FC = () => {
                     md: 2,
                     lg: 3,
                 },
-            }}/>
-            <Typography variant="h2" fontWeight={700} fontFamily="inherit" sx={{
+            }} initial="hidden" whileInView="visible" variants={logoVariants}/>
+            <MTypography variant="h2" fontWeight={700} fontFamily="inherit" sx={{
                 marginBottom: {xs: 0, sm: 1,}, fontSize: {
                     xs: "1.5rem",
                     sm: "2rem",
                     md: "3rem",
                     lg: "3.75rem",
                 },
-            }}>Get Started
-                Now</Typography>
-            <Typography variant="h4" fontWeight={400} align="center" fontFamily="inherit" sx={{
+            }} initial="hidden" whileInView="visible" variants={typographyVariants} custom={1}>Get Started
+                Now</MTypography>
+            <MTypography variant="h4" fontWeight={400} align="center" fontFamily="inherit" sx={{
                 marginBottom: 2, fontSize: {
                     xs: "1.25rem",
                     sm: "1.5rem",
                     md: "1.75rem",
                     lg: "2rem",
                 }
-            }}>
+            }} initial="hidden" whileInView="visible" variants={typographyVariants} custom={2}>
                 Setup is easy and takes under 5 minutes.
-            </Typography>
-            <Button variant="contained"
-                    sx={{
-                        fontFamily: "inherit",
-                        fontWeight: 500,
-                        marginBottom: 1,
-                        width: {
-                            xs: "100%",
-                            sm: 150,
-                            md: 180,
-                            lg: 200,
-                        },
-                        height: {
-                            xs: 30,
-                            md: 40,
-                            lg: 50,
-                        },
-                        fontSize: {
-                            xs: 10,
-                            md: 11,
-                            lg: 12,
-                        },
-                    }}>
+            </MTypography>
+            <MButton variant="contained"
+                     sx={{
+                         fontFamily: "inherit",
+                         fontWeight: 500,
+                         marginBottom: 1,
+                         width: {
+                             xs: "100%",
+                             sm: 150,
+                             md: 180,
+                             lg: 200,
+                         },
+                         height: {
+                             xs: 30,
+                             md: 40,
+                             lg: 50,
+                         },
+                         fontSize: {
+                             xs: 10,
+                             md: 11,
+                             lg: 12,
+                         },
+                     }} initial="hidden" whileInView="visible" variants={buttonVariants} custom={3}>
                 Get Started Now
-            </Button>
+            </MButton>
             <Stack direction="row" columnGap="2px" sx={{
                 fontSize: {
                     xs: 12,
@@ -78,7 +164,7 @@ const GetStart: FC = () => {
                     lg: 16,
                 },
             }}>
-                <Box sx={{
+                <MBox sx={{
                     width: {
                         xs: 10,
                         md: 15,
@@ -87,18 +173,20 @@ const GetStart: FC = () => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "start",
-                }}>
+                }} initial="hidden" whileInView="visible" variants={greenDotVariants}>
                     <img className={styles.greenDot} src={dot} alt="dot" style={{
                         alignSelf: "start",
                         width: "100%",
                     }}/>
-                </Box>
+                </MBox>
                 <Stack direction="row" columnGap={1} alignItems="center">
-                    <Typography variant="body1" fontFamily="inherit" fontWeight={700} sx={{fontSize: "inherit",}}>
-                        1000+</Typography>
-                    <Typography variant="body1" fontFamily="inherit" sx={{color: "grey.600", fontSize: "inherit",}}>
+                    <MTypography variant="body1" fontFamily="inherit" fontWeight={700} sx={{fontSize: "inherit",}}
+                                 initial="hidden" whileInView="visible" variants={whiteTextVariants}>
+                        1000+</MTypography>
+                    <MTypography variant="body1" fontFamily="inherit" sx={{color: "grey.600", fontSize: "inherit",}}
+                                 initial="hidden" whileInView="visible" variants={greyTextVariants} custom={4}>
                         creators have already
-                        started</Typography>
+                        started</MTypography>
                 </Stack>
             </Stack>
         </Container>
