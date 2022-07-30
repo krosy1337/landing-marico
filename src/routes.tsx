@@ -27,12 +27,9 @@ export const mainRoutes: RouteObject[] = [
             {path: RouteNames.ABOUT, element: <AboutPage/>},
             {path: RouteNames.BLOG, element: <BlogPage/>},
             {path: RouteNames.PRICING, element: <PricingPage/>},
-            {path: "*", element: <ErrorPage />,},
+            {path: "*", element: <ErrorPage/>,},
+            {path: RouteNames.LOGIN, element: <LogInPage/>},
+            {path: RouteNames.SIGN_UP, element: <SignUpPage/>},
         ]
     },
-]
-
-export const guestRoutes: RouteObject[] = [
-    {path: RouteNames.LOGIN, element: <LogInPage/>},
-    {path: RouteNames.SIGN_UP, element: <SignUpPage/>},
 ]

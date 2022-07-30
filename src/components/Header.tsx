@@ -48,16 +48,20 @@ const Header: FC = () => {
                         <UiNavLink to={RouteNames.BLOG}>Blog</UiNavLink>
                     </Stack>
                     <Stack direction="row" columnGap={1} alignItems="center">
-                        <Button variant="text"
-                                sx={{
-                                    fontFamily: "inherit",
-                                    color: "grey.600",
-                                    fontSize: 14,
-                                    textTransform: "none"
-                                }}>Login</Button>
-                        <Button variant="contained"
-                                sx={{fontFamily: "inherit", fontSize: 14, fontWeight: 500, textTransform: "none"}}>Sign
-                            Up</Button>
+                        <UiNavLink to={RouteNames.LOGIN}>
+                            <Button variant="text"
+                                    sx={{
+                                        fontFamily: "inherit",
+                                        color: "grey.600",
+                                        fontSize: 14,
+                                        textTransform: "none"
+                                    }}>Login</Button>
+                        </UiNavLink>
+                        <UiNavLink to={RouteNames.SIGN_UP}>
+                            <Button variant="contained"
+                                    sx={{fontFamily: "inherit", fontSize: 14, fontWeight: 500, textTransform: "none"}}>Sign
+                                Up</Button>
+                        </UiNavLink>
                     </Stack>
                 </Toolbar>
                 <Toolbar
@@ -108,13 +112,15 @@ const Header: FC = () => {
                         </UiNavLink>
                     </Menu>
                     <Stack direction="row" columnGap={1} alignItems="center">
-                        <Button variant="text"
-                                sx={{
-                                    fontFamily: "inherit",
-                                    color: "grey.600",
-                                    fontSize: 14,
-                                    textTransform: "none"
-                                }}>Login</Button>
+                        <UiNavLink to={RouteNames.LOGIN}>
+                            <Button variant="text"
+                                    sx={{
+                                        fontFamily: "inherit",
+                                        color: "grey.600",
+                                        fontSize: 14,
+                                        textTransform: "none"
+                                    }}>Login</Button>
+                        </UiNavLink>
                     </Stack>
                 </Toolbar>
             </Container>
