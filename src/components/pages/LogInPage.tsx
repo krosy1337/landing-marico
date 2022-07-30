@@ -254,7 +254,7 @@ const LogInPage: FC = () => {
                           horizontal: "center",
                       }}>
                 <Alert onClose={onClose} severity="success">
-                    <Typography>Welcome {username}</Typography>
+                    <Typography>Welcome, {username}!</Typography>
                 </Alert>
             </Snackbar>
         </>
