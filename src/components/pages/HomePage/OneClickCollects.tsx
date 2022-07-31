@@ -4,6 +4,8 @@ import phone from "assets/mobile.png"
 import MContainer from "components/Motion/MContainer"
 import MGrid from "components/Motion/MGrid"
 import MButton from "components/Motion/MButton"
+import {useNavigate} from "react-router-dom"
+import {RouteNames} from "routes"
 
 const leftVariants = {
     hidden: {
@@ -49,6 +51,11 @@ const buttonVariants = {
 
 const OneClickCollects: FC = () => {
     const {palette} = useTheme()
+    const navigator = useNavigate()
+
+    const onClick = () => {
+        navigator(RouteNames.PRICING)
+    }
     return (
         <MContainer maxWidth="lg" sx={{
             display: "flex", flexDirection: "column", alignItems: "center", marginBottom: {
@@ -166,6 +173,7 @@ const OneClickCollects: FC = () => {
                 </MGrid>
             </Grid>
             <MButton variant="contained"
+                     onClick={onClick}
                      sx={{
                          fontFamily: "inherit", fontWeight: 400,
                          width: {

@@ -5,6 +5,8 @@ import MBox from "components/Motion/MBox"
 import MTypography from "components/Motion/MTypography"
 import MButton from "components/Motion/MButton"
 import MGreyButton from "components/Motion/MGreyButton"
+import {useNavigate} from "react-router-dom"
+import {RouteNames} from "routes"
 
 const imageVariants = {
     hidden: {
@@ -52,6 +54,11 @@ const buttonVariants = {
 }
 
 const CreateShare: FC = () => {
+    const navigator = useNavigate()
+
+    const onClick = () => {
+        navigator(RouteNames.PRICING)
+    }
     return (
         <Container maxWidth="lg" sx={{
             display: "flex", alignItems: {xs: "normal", md: "flex-start"},
@@ -236,6 +243,7 @@ const CreateShare: FC = () => {
                     width: "100%",
                 }}>
                     <MButton variant="contained"
+                             onClick={onClick}
                              sx={{
                                  fontFamily: "inherit", fontWeight: 400,
                                  width: {

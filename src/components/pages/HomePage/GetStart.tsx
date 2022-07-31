@@ -7,6 +7,8 @@ import MAvatar from "components/Motion/MAvatar"
 import MTypography from "components/Motion/MTypography"
 import MButton from "components/Motion/MButton"
 import MBox from "components/Motion/MBox"
+import {useNavigate} from "react-router-dom"
+import {RouteNames} from "routes"
 
 const logoVariants = {
     hidden: {
@@ -91,6 +93,11 @@ const greyTextVariants = {
 }
 
 const GetStart: FC = () => {
+    const navigator = useNavigate()
+
+    const onClick = () => {
+        navigator(RouteNames.PRICING)
+    }
     return (
         <Container maxWidth="lg"
                    sx={{
@@ -134,6 +141,7 @@ const GetStart: FC = () => {
                 Setup is easy and takes under 5 minutes.
             </MTypography>
             <MButton variant="contained"
+                     onClick={onClick}
                      sx={{
                          fontFamily: "inherit",
                          fontWeight: 500,

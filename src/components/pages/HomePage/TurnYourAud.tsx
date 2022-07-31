@@ -6,6 +6,8 @@ import MTypography from "components/Motion/MTypography"
 import MButton from "components/Motion/MButton"
 import MGreyButton from "components/Motion/MGreyButton"
 import MBox from "components/Motion/MBox"
+import {useNavigate} from "react-router-dom"
+import {RouteNames} from "routes"
 
 const typographyVariants = {
     hidden: {
@@ -65,6 +67,11 @@ const whiteTextVariants = {
 }
 
 const TurnYourAud: FC = () => {
+    const navigator = useNavigate()
+
+    const onClick = () => {
+        navigator(RouteNames.PRICING)
+    }
     return (
         <Container maxWidth="md" sx={{
             marginTop: {
@@ -109,6 +116,7 @@ const TurnYourAud: FC = () => {
                 width: "100%",
             }}>
                 <MButton variant="contained"
+                         onClick={onClick}
                          sx={{
                              fontFamily: "inherit", fontWeight: 400,
                              width: {
