@@ -26,7 +26,6 @@ const Footer: FC = () => {
                                 sx={{color: "grey.600"}}>info@marico.com</Typography>
                 </Stack>
                 <Stack direction={{xs: "column", sm: "row"}} columnGap={1} alignItems="center">
-                    <UiNavLink to={RouteNames.ABOUT}>About</UiNavLink>
                     <UiNavLink to={RouteNames.PRICING}>Pricing</UiNavLink>
                     <UiNavLink to={RouteNames.BLOG}>Blog</UiNavLink>
                 </Stack>

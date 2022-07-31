@@ -43,7 +43,6 @@ const Header: FC = () => {
                         </Box>
                     </Link>
                     <Stack direction="row" columnGap={1} alignItems="center">
-                        <UiNavLink to={RouteNames.ABOUT}>About</UiNavLink>
                         <UiNavLink to={RouteNames.PRICING}>Pricing</UiNavLink>
                         <UiNavLink to={RouteNames.BLOG}>Blog</UiNavLink>
                     </Stack>
@@ -101,9 +100,6 @@ const Header: FC = () => {
                           open={!!anchorElNav}
                           onClose={handleCloseNavMenu}
                     >
-                        <UiNavLink to={RouteNames.ABOUT}>
-                            <MenuItem>About</MenuItem>
-                        </UiNavLink>
                         <UiNavLink to={RouteNames.PRICING}>
                             <MenuItem>Pricing</MenuItem>
                         </UiNavLink>

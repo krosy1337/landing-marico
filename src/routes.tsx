@@ -2,7 +2,6 @@ import React from "react"
 import {RouteObject} from "react-router-dom"
 import Layout from "./components/layout/Layout"
 import HomePage from "./components/pages/HomePage/HomePage"
-import AboutPage from "./components/pages/AboutPage"
 import BlogPage from "components/pages/BlogPage/BlogPage"
 import PricingPage from "components/pages/PricingPage/PricingPage"
 import LogInPage from "./components/pages/LogInPage"
@@ -11,7 +10,6 @@ import ErrorPage from "./components/pages/ErrorPage"
 
 export enum RouteNames {
     ROOT = "/",
-    ABOUT = "/about",
     BLOG = "/blog",
     PRICING = "/pricing",
     LOGIN = "/login",
@@ -24,7 +22,6 @@ export const mainRoutes: RouteObject[] = [
         element: <Layout/>,
         children: [
             {path: RouteNames.ROOT, element: <HomePage/>},
-            {path: RouteNames.ABOUT, element: <AboutPage/>},
             {path: RouteNames.BLOG, element: <BlogPage/>},
             {path: RouteNames.PRICING, element: <PricingPage/>},
             {path: "*", element: <ErrorPage/>,},
